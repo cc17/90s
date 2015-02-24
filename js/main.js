@@ -155,7 +155,7 @@
 
     setTimeout(function(){
       defer.resolve();
-    }, 300);
+    }, 3000);
     return defer;
   }).then(function(){
     //3.引导页进入舞台
