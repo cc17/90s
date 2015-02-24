@@ -135,7 +135,7 @@
     });
     setTimeout(function(){
       defer.resolve();
-    },4000);
+    },3000);
     return defer;
   }).then(function(){
     $('.cover').css('-webkit-animation','fadeOutLeft 0.3s forwards');
