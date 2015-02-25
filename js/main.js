@@ -173,7 +173,7 @@
     $('.guide-6').on('webkitAnimationEnd',function(){
       setTimeout(function(){
         defer.resolve();
-      }, 200);
+      }, 2000);
     });
     return defer;
   }).then(function(){

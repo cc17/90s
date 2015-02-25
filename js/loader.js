@@ -89,7 +89,7 @@
     $.coming90 = function(callback){
         _loadImages(pics,function(){
             //for test
-          //return;
+          return;
           callback();
           $('#loading-wrap').remove();
         });

@@ -12,7 +12,11 @@
 (function( $, undefined ) {
   
 $.data = function(elem, key, value){
+  if(!value){
+    return $(elem).data(key);
+  }
     return $(elem).data(key, value);
+  }
 }
 
   /*! 
@@ -60,6 +64,7 @@ $.data = function(elem, key, value){
    *   add &nbsp; for empty chars.
    */
   function injector(t, splitter, klass, after) {
+    return;
     var a = t.text().split(splitter), inject = '', emptyclass;
     if (a.length) {
       $(a).each(function(i, item) {
