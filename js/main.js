@@ -1,38 +1,7 @@
 (function($){
   var viewWidth = $(window).width();
 
-  var guestAnimationData = {
-    1:"bounceInRight 0.8s ease-in-out forwards",
-    2:"bounceInRight 0.8s ease-in-out 100ms forwards",
-    3:"bounceInRight 0.8s ease-in-out 200ms forwards",
-    4:"bounceInRight 0.8s ease-in-out 300ms forwards"
-  };
-  var guideAnimationData = {
-    0:"zoomInRight 0.6s ease-in",
-    1:"zoomInLeft 0.6s ease-in 0.6s",
-    2:"zoomInRight 0.6s ease-in 1.2s",
-    3:"zoomInLeft 0.6s ease-in 1.8s",
-    4:"bounceInDown 0.8s ease-in 2.4s",
-    5:"tada 0.6s ease-in 3.4s",
-    6:"triangleMove 4s ease-in infinite",
-    7:"triangleMove 4s ease-in infinite",
-    8:"triangleMove 4s ease-in infinite",
-  };
-  var coverAnimationData = {
-    0:"coming 500ms",
-    1:"fadeIn 0.7s ease-in 0.5s forwards",
-    2:"triangleMove 4s ease-in infinite forwards",
-    3:"triangleMove 4s ease-in infinite forwards",
-    4:"slogan 0.3s ease-in 0.5s forwards"
-  };
-  var videoAnimationData = {
-    0:'videoAnimate 0.6s ease-in forwards',
-    1:'fadeIn 0.6s ease-in 0.8s forwards',
-    2:'fadeIn 0.6s ease-in 0.8s forwards',
-    3:'fadeIn 0.6s ease-in 0.8s forwards',
-    4:'triangleMove 4s ease-in 0.6s forwards infinite',
-    5:'triangleMove 4s ease-in 0.6s forwards infinite'
-  };
+  
 
 
   
@@ -97,14 +66,17 @@
   var viewRate = viewWidth/320;
   var viewHeight = $(window).height();
   var $contentLis = $('.content-li');
+  var $wrap = $('.scroll');
+  var pageIndex = -1;
   
+  $wrap.css('width',viewWidth*6 + 'px');
   $contentLis.css('width',viewWidth + 'px').css('height',viewHeight + 'px');
   $('.page-content').css('transform','scale('+ viewRate +')');
-
+  
   
 
   
-  var step = 0;
+  var step = -1;
   function startAnimation(){
     var defer = $.mDeferred();
 
@@ -116,118 +88,47 @@
     return defer;
   };
 
+  function showPage(directive){
+    if(directive == 'next'){ //往后翻
+      if(pageIndex == 5){
+        return;
+      }
+      pageIndex++;
+      
+
+      
+    }else if(directive == 'first'){
+      pageIndex = 0;
+
+    }else{//往前翻
+      if(pageIndex == 0){
+        return;
+      }
+      pageIndex--;
+      
+      
+    }
+
+    $wrap.css('-webkit-transform','translateX('+ (-pageIndex*viewWidth) +'px)');
+    $contentLis.eq(pageIndex).addClass('animation-on').siblings().removeClass('animation-on');
+
+  };
+
+
   startAnimation().then(function(){
     var defer = $.mDeferred();
-    //1.cover进入舞台
-    $('.cover').css('-webkit-animation','fadeIn 0.4s ease-in forwards');
-    var animationBlocks = $contentLis.eq(step).find('.animation');
-    step++;
 
+    //1.cover进入舞台
+    // $('.cover').addClass('fadeInLeft animation-on');
+    // var animationBlocks = $contentLis.eq(step).find('.animation');
+    
+    showPage('next');
+    
+    //移除loading
     $('#loading-wrap').addClass('fadeOutLeft').on('webkitAnimationEnd',function(){
       $('#loading-wrap').remove();
     });
-    
-    
-    animationBlocks.each(function(index){
-      $(this)
-        .css('-webkit-animation', coverAnimationData[index] )
-        .css('-webkit-animation-fill-mode','forwards'); 
-    });
-    setTimeout(function(){
-      defer.resolve();
-    },3000);
-    return defer;
-  }).then(function(){
-    $('.cover').css('-webkit-animation','fadeOutLeft 0.3s forwards');
-    $('.cover').on('webkitAnimationEnd',function(){
-      $('.cover').remove();
-    });
-    /***2. 嘉宾页进入舞台**/
-    var $guest = $('.guest');
-    $guest.addClass('fadeInRight')
-    var defer = $.mDeferred();
-    $guest.find('.left-block').each(function(index){
-        $(this).css('-webkit-animation',guestAnimationData[parseInt(index,10) + 1]);
-    });
-    $guest.find('.right-block').each(function(index){
-      $(this).css('-webkit-animation',guestAnimationData[parseInt(index,10) + 1]);
-    });
-
-    setTimeout(function(){
-      defer.resolve();
-    }, 3000);
-    return defer;
-  }).then(function(){
-    //3.引导页进入舞台
-    $('.guest').addClass('fadeOutLeft').on('webkitAnimationEnd',function(){
-      $('.guest').remove();
-    });
-    $('.guide').addClass('fadeInRight')
-    var guideBlocks = $('.guide').find('.animation');
-    guideBlocks.each(function(index){
-      $(this)
-        .css('-webkit-animation', guideAnimationData[index] )
-        .css('-webkit-animation-fill-mode','forwards');  
-    });
-    var defer = $.mDeferred();
-    $('.guide-6').on('webkitAnimationEnd',function(){
-      setTimeout(function(){
-        defer.resolve();
-      }, 2000);
-    });
-    return defer;
-  }).then(function(){
-    //4.video出场
-    $('.guide').addClass('fadeOutLeft').on('webkitAnimationEnd',function(){
-      $('.guide').remove();
-    });
-    $('.video').addClass('bounce-in-right');
-    var animateBlocks = $('.video').find('.animation');
-    animateBlocks.each(function(index){
-      $(this).css('-webkit-animation', videoAnimationData[index] );  
-    });
-    $('.video').addClass('animation-on');
-    //点击播放视频
-    $('.video-play-btn').click(function(){
-      createVideo();
-      $(this).hide();
-    });
-    //关闭视频
-    $(".closeVideo").off().on("tap",function(){
-      player.pause();
-      $(".videoLayer").hide();
-      $('.video-play-btn').show().css('opacity',1);
-    });
-    var defer = $.mDeferred();
-    
-    //滑动屏幕进入下一页
-    $(document).off('swipeLeft').on('swipeLeft','.video',function(e){
-      e.preventDefault();
-      defer.resolve();
-      return false;
-    });
-    return defer;
-  }).then(function(){
-    //5.往前回顾
-    $('.video').addClass('fadeOutLeft').on('webkitAnimationEnd',function(){
-      $('.video').remove();
-    });
-    $('.previous-review').addClass('bounce-in-right').addClass('animation-on');
-    var defer = $.mDeferred();
-    
-    //滑动屏幕进入下一页
-    $(document).off('swipeLeft').on('swipeLeft','.previous-review',function(e){
-      e.preventDefault();
-      defer.resolve();
-      return false;
-    });
-    return defer;
-  }).then(function(){
-    $('.previous-review').addClass('fadeOutLeft').on('webkitAnimationEnd',function(){
-      $('.previous-review').remove();
-    });
-    $('.author').addClass('bounce-in-right').addClass('animation-on');
-  });
+  })
 
 
   
@@ -246,10 +147,34 @@
   };
   mShare.init();
   $('#start_again').click(function(){
-    location.reload();
+    showPage('first');
   });
 
   
+//cover右侧滑动，进入guest页面
+$(document).off('swipeLeft').on('swipeLeft','.content-li',function(e){
+  e.preventDefault();
+  showPage('next');
+});
+
+$(document).off('swipeRight').on('swipeRight','.content-li',function(e){
+  e.preventDefault();
+  showPage('prev')
+});
+
+//点击播放视频
+$('.video-play-btn').click(function(){
+  createVideo();
+  $(this).hide();
+});
+//关闭视频
+$(".closeVideo").off().on("tap",function(){
+  player.pause();
+  $(".videoLayer").hide();
+  $('.video-play-btn').show().css('opacity',1);
+});
+
+
 
 
 

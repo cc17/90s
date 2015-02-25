@@ -63,8 +63,33 @@ body {
   left: 0px;
   top: 0px;
 }
-
-
+.scroll{
+  -webkit-transition:all 0.3s;
+}
+.arrow{
+  width: 31px;
+  height: 16.5px;
+  position: absolute;
+  z-index: 9999;
+  bottom: 32px;
+  left:50%;
+  margin-left:-15.5px;
+  background: url(../images/arrow.png) no-repeat;
+  background-size: contain;
+  -webkit-animation:arrow 1.5s infinite;
+  display: none;
+}
+@-webkit-keyframes arrow{
+  0%{
+    -webkit-transform:translateX(0);
+  }
+  50%{
+    -webkit-transform:translateX(5px);
+  }
+  100%{
+    -webkit-transform:translateX(0);
+  }
+}
 
 
 
@@ -246,17 +271,9 @@ body {
   font-family: Arial;
   margin-top: 20px;
 }
-
-
-
 /*new*/
 .content-li{
-  position: absolute;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
+  float: left;
   overflow: hidden;
 }
 .page-content {
@@ -488,6 +505,21 @@ body {
     -webkit-transform:  translate(0px,0px)  ;
   }
 }
+.animation-on .coming-90-inner{
+  -webkit-animation:coming 500ms forwards;
+}
+.animation-on .lianghui{
+  -webkit-animation:fadeIn 0.7s ease-in 0.5s forwards;
+}
+.animation-on .cover-triangle-1{
+  -webkit-animation:triangleMove 4s ease-in infinite forwards;
+}
+.animation-on .cover-triangle-2{
+  -webkit-animation:triangleMove 4s ease-in infinite forwards;
+}
+.animation-on .slogan{
+  -webkit-animation:slogan 0.3s ease-in 0.5s forwards;
+}
 
 
 /**************************
@@ -495,9 +527,9 @@ body {
 ***************************/
 .guest{
   z-index: 80;
-  position: absolute;
+  position: relative;
   top:0;
-  opacity:0;
+  opacity:1;
   width: 100%;
   height: 100%;
   background:url(../images/gray-bg2.png) no-repeat;
@@ -637,6 +669,33 @@ body {
   background: url(../images/guest-1-right-4.png) no-repeat;
   background-size: cover;
 }
+
+
+.animation-on .guest-1-left-1{
+  -webkit-animation:bounceInLeft 0.8s ease-in-out forwards;
+}
+.animation-on .guest-1-left-2{
+  -webkit-animation:bounceInLeft 0.8s ease-in-out 100ms forwards;
+}
+.animation-on .guest-1-left-3{
+  -webkit-animation:bounceInLeft 0.8s ease-in-out 200ms forwards;
+}
+.animation-on .guest-1-left-4{
+  -webkit-animation:bounceInLeft 0.8s ease-in-out 300ms forwards;
+}
+.animation-on .guest-1-right-1{
+  -webkit-animation:bounceInRight 0.8s ease-in-out forwards;
+}
+.animation-on .guest-1-right-2{
+  -webkit-animation:bounceInRight 0.8s ease-in-out 100ms forwards;
+}
+.animation-on .guest-1-right-3{
+  -webkit-animation:bounceInRight 0.8s ease-in-out 200ms forwards;
+}
+.animation-on .guest-1-right-4{
+  -webkit-animation:bounceInRight 0.8s ease-in-out 300ms forwards;
+}
+
 /**************************
       guest end
 ***************************/
@@ -649,11 +708,11 @@ body {
   z-index: 70;
   width:100%;
   height: 100%;
-  position: absolute;
+  position: relative;
   background: url(../images/gray-bg.png) #f2f2f1 no-repeat left bottom;
   background-size: cover;
   z-index: 10;
-  opacity: 0;
+  opacity: 1;
   top:0;
   left:0;
 }
@@ -669,6 +728,7 @@ body {
   left: 50%;
   margin-left: -115px;
   top: 0;
+  opacity: 0;
   height: 30.5px;
   background: url(../images/guide-1.png) no-repeat left bottom;
   background-size: contain;
@@ -759,6 +819,37 @@ body {
   -webkit-animation: triangleMove 4s ease-in infinite;
 }
 
+
+.animation-on .guide-1{
+  -webkit-animation:zoomInRight 0.6s ease-in forwards;
+}
+.animation-on .guide-2{
+  -webkit-animation:zoomInLeft 0.6s ease-in 0.6s forwards;
+}
+.animation-on .guide-3{
+  -webkit-animation:zoomInRight 0.6s ease-in 1.2s forwards;
+}
+.animation-on .guide-4{
+  -webkit-animation:zoomInLeft 0.6s ease-in 1.8s forwards;
+}
+.animation-on .guide-5{
+  -webkit-animation:bounceInDown 0.8s ease-in 2.4s forwards;
+}
+.animation-on .guide-6{
+  -webkit-animation:tada 0.6s ease-in 3.4s forwards;
+}
+
+.animation-on .guide-star-right{
+  -webkit-animation:triangleMove 4s ease-in infinite;
+}
+.animation-on .guide-star-bottom{
+  -webkit-animation:triangleMove 4s ease-in infinite;
+}
+.animation-on .guide-star-top{
+  -webkit-animation:triangleMove 4s ease-in infinite;
+}
+
+
 /**************************
       guest end
 ***************************/
@@ -772,7 +863,7 @@ body {
   height: 100%;
   position: relative;
   bottom: 0;
-  opacity: 0;
+  opacity: 1;
   background: url(../images/gray-bg2.png) #f2f2f1 no-repeat left bottom;
   background-size: cover;
 }
@@ -790,7 +881,7 @@ body {
   width: 291px;
   height: 251px;
   position: relative;
-  top:20%;
+  top:25%;
 
 }
 .video-box-in{
@@ -939,7 +1030,24 @@ body {
         opacity: 1.3
     }
 }
-
+.animation-on .video-box-in{
+  -webkit-animation:videoAnimate 0.6s ease-in forwards;
+}
+.animation-on .video-play-btn{
+  -webkit-animation:fadeIn 0.6s ease-in 0.8s forwards;
+}
+.animation-on .video-text{
+  -webkit-animation:fadeIn 0.6s ease-in 0.8s forwards;
+}
+.animation-on .video-num{
+  -webkit-animation:fadeIn 0.6s ease-in 0.8s forwards;
+}
+.animation-on .video-trangle{
+  -webkit-animation:triangleMove 4s ease-in 0.6s forwards infinite;
+}
+.animation-on .video-trangle-gray{
+  -webkit-animation:triangleMove 4s ease-in 0.6s forwards infinite;
+}
 /**************************
       video end
 ***************************/
@@ -951,9 +1059,9 @@ body {
   z-index: 50;
   width:100%;
   height: 100%;
-  position: absolute;
+  position: relative;
   bottom: 0;
-  opacity: 0;
+  opacity: 1;
   background: url(../images/previous-review-bg.png) #f2f2f1 no-repeat left bottom;
   background-size: cover;
 }
@@ -967,11 +1075,13 @@ body {
   background-size: contain;
 }
 .previous-review-list{
-  width: 60%;
-  left: 20%;
-  position: absolute;
+  width: 180px;
+  margin: 0 auto;
+  left: -4px;
+  position: relative;
   z-index: 2;
-  top: 20%;
+  top: 18%;
+  -webkit-transform-origin:top center;
 }
 .previous-review-list li{
   height: 60px;
@@ -979,8 +1089,14 @@ body {
   padding: 0 0 15px 18px;
   position: relative;
   color:#fff;
-  font-size: 1.6rem;
-  line-height: 2rem;
+  font-size: 14px;
+  line-height: 21px;
+}
+.previous-review-list li a{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  color:#fff;
 }
 .previous-review-list li .block{
   background-color: #56beed;
@@ -1016,9 +1132,9 @@ body {
   z-index: 40;
   width:100%;
   height: 100%;
-  position: absolute;
+  position: relative;
   bottom: 0;
-  opacity: 0;
+  opacity: 1;
   z-index: 8;
   background: url(../images/gray-bg2.png) #f2f2f1 no-repeat left bottom;
   background-size: cover;
@@ -1133,7 +1249,7 @@ body {
   height: 30px;
   position: absolute;
   right: 0px;
-  bottom: -29px;
+  top: -29px;
   background: url(../images/close.png);
   background-size: 100% 100%;
 }
@@ -1144,6 +1260,81 @@ body {
 }
 .fadeOutLeft{
   -webkit-animation:fadeOutLeft 0.3s forwards;
+}
+.cover.fadeOutLeft{
+  -webkit-animation:fadeOut 0.3s forwards;
+}
+.cover.fadeInLeft{
+  -webkit-animation:fadeIn 0.3s forwards;
+}
+@-webkit-keyframes bounceInLeft {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-3000px, 0, 0);
+            transform: translate3d(-3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(25px, 0, 0);
+            transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+            transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(5px, 0, 0);
+            transform: translate3d(5px, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes bounceInLeft {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-3000px, 0, 0);
+            transform: translate3d(-3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(25px, 0, 0);
+            transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+            transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(5px, 0, 0);
+            transform: translate3d(5px, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
 }
 @-webkit-keyframes bounceInRight {
     0% {
@@ -1210,6 +1401,10 @@ body {
 @-webkit-keyframes fadeIn {
   0% {opacity: 0;}
   100% {opacity: 1;}
+}
+@-webkit-keyframes fadeOut {
+  0% {opacity:1;}
+  100% {opacity: 0;}
 }
 @-webkit-keyframes bounceInDown {
   0%, 60%, 75%, 90%, 100% {

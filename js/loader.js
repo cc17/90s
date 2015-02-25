@@ -92,6 +92,7 @@
           //return;
           callback();
           $('#loading-wrap').remove();
+          $('.arrow').show();
         });
     };
  })(Zepto);

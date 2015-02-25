@@ -39,6 +39,7 @@
 </head>
 <body>
     <div class="wrap">
+        <div class="arrow"></div>
         <!-- loading -->
         <div id="loading-wrap">
             <div class="loading"></div>
@@ -55,173 +56,166 @@
             <div class="progress-text">65%</div>
             <div class="cover-ft" ></div>
         </div>
-        <!-- cover -->
-        <div class="content-li cover">
-            <div class="page-content">
-                <div class="coming-90 img-block">
-                    <span class="animation coming-90-inner"><div class="cover-star"></div></span>
-                    <div class="animation lianghui"></div>
-                    <div class="cover-triangle-3"></div>
-                    <div class="cover-hole"></div>
-                    <div class="animation cover-triangle-1"></div>
-                    <div class="animation cover-triangle-2"></div>
-                    <div class="animation slogan img-block">
-                        <span class="slogan-img"></span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <!-- guest -->
-        <div class="content-li guest wrap">
-            <div class="guest-1-left page-content">
-                <div class="left-block guest-1-left-1"></div>
-                <div class="left-block guest-1-left-2"></div>
-                <div class="left-block guest-1-left-3"></div>
-                <div class="left-block guest-1-left-4"></div>
-            </div>
-            <div class="guest-1-right page-content" >
-                <div class="right-block guest-1-right-1"></div>
-                <div class="right-block guest-1-right-2"></div>
-                <div class="right-block guest-1-right-3"></div>
-                <div class="right-block guest-1-right-4"></div>
-            </div>
-        </div>
-        <!-- guide -->
-        <div class="content-li guide wrap">
-            <div class="page-content">
-                <div class=" guide-content">
-                    <div class="animation guide-1"></div>
-                    <div class="animation guide-2"></div>
-                    <div class="animation guide-3"></div>
-                    <div class="animation guide-4"></div>
-                    <div class="animation guide-5"></div>
-                    <div class="animation guide-6 img-block">
-                        <span class="guide-6-img"></span>
-                    </div>
-
-                    <div class="animation guide-star-right img-block">
-
-                        <span class="guide-star-right-img"></span>
-                    </div>
-                    <div class="animation guide-star-bottom"></div>
-                </div>
-            </div>
-
-
-
-            <div class="page-content animation guide-star-top"></div>
-
-        </div>
-        <!-- video -->
-        <div class="content-li video wrap">
-            <div class="page-content">
-                <div class="video-box">
-                    <div class="animation video-box-in">
-                        <div class="video-frame">
-                            <!-- video  -->
-                            <div class="videoLayer" style="display: none;">
-                                <section class="videoWrap">
-                                    <div class="video" data-vedioid="y001562m739" id="mod_player1" videoimg="http://mat1.gtimg.com/news/2014/zt/abju/h5/vid2.jpg"></div>
-                                    <p class="closeVideo" style="-webkit-transform-origin: 0px 0px 0px; opacity: 1; -webkit-transform: scale(1, 1);"></p>
-                                </section>
-                            </div>
+        <div class="scroll">
+            <!-- cover -->
+            <div class="content-li cover" next="guest">
+                <div class="page-content">
+                    <div class="coming-90 img-block">
+                        <span class=" coming-90-inner"><div class="cover-star"></div></span>
+                        <div class=" lianghui"></div>
+                        <div class="cover-triangle-3"></div>
+                        <div class="cover-hole"></div>
+                        <div class=" cover-triangle-1"></div>
+                        <div class=" cover-triangle-2"></div>
+                        <div class=" slogan img-block">
+                            <span class="slogan-img"></span>
                         </div>
                     </div>
-                    <div class="video-hole"></div>
-                    <div class="animation video-play-btn"></div>
-                    <div class="animation video-text">
-                        <p>大叔大妈让一让</p>
-                        <p>我对这个世界<span class="video-font-2">"有看法"</span></p>
-                    </div>
-                    <div class="animation video-num">第一期</div>
-                    <div class="animation video-trangle"></div>
-                    <div class="animation video-trangle-gray"></div>
+
                 </div>
             </div>
-            <!-- 向左滑动切换提示 -->
-            <div class="ele mod-page-0__arrow">
-                <div class="mod-page-0__arrow-item mod-page-0__arrow-item-1"></div>
-                <div class="mod-page-0__arrow-item mod-page-0__arrow-item-2"></div>
-                <div class="mod-page-0__arrow-item mod-page-0__arrow-item-3"></div>
+            <!-- guest -->
+            <div class="content-li guest" next="guest" prev="cover">
+                <div class="guest-1-left page-content">
+                    <div class=" guest-1-left-1"></div>
+                    <div class=" guest-1-left-2"></div>
+                    <div class=" guest-1-left-3"></div>
+                    <div class=" guest-1-left-4"></div>
+                </div>
+                <div class="guest-1-right page-content" >
+                    <div class="guest-1-right-1"></div>
+                    <div class="guest-1-right-2"></div>
+                    <div class="guest-1-right-3"></div>
+                    <div class="guest-1-right-4"></div>
+                </div>
             </div>
+            <!-- guide -->
+            <div class="content-li guide ">
+                <div class="page-content">
+                    <div class=" guide-content">
+                        <div class="animation guide-1"></div>
+                        <div class="animation guide-2"></div>
+                        <div class="animation guide-3"></div>
+                        <div class="animation guide-4"></div>
+                        <div class="animation guide-5"></div>
+                        <div class="animation guide-6 img-block">
+                            <span class="guide-6-img"></span>
+                        </div>
 
-        </div>
-        <!-- 往期回顾 -->
-        <div class="content-li previous-review">
-            <div class="previous-review-trangle"></div>
-            <ul class="previous-review-list">
-                <li>
-                    <div class="block">
-                        <p class="text-padding">大叔大妈让一让</p>
-                        <p>我对这个世界“有看法”</p>
-                    </div>
-                    <div class="circle"></div>
+                        <div class="animation guide-star-right img-block">
 
-                </li>
-                <li>
-                    <div class="block">
-                        <p class="text-padding">大叔大妈让一让</p>
-                        <p>我对这个世界“有看法”</p>
+                            <span class="guide-star-right-img"></span>
+                        </div>
+                        <div class="animation guide-star-bottom"></div>
                     </div>
-                    <div class="circle"></div>
-                </li>
-                <li>
-                    <div class="block">
-                        <p class="text-padding">大叔大妈让一让</p>
-                        <p>我对这个世界“有看法”</p>
+                </div>
+
+
+
+                <div class="page-content animation guide-star-top"></div>
+
+            </div>
+            <!-- video -->
+            <div class="content-li video ">
+                <div class="page-content">
+                    <div class="video-box ">
+                        <div class="animation video-box-in">
+                            <div class="video-frame">
+                                <!-- video  -->
+                                <div class="videoLayer" style="display: none;">
+                                    <section class="videoWrap">
+                                        <div  data-vedioid="y001562m739" id="mod_player1" videoimg="http://mat1.gtimg.com/news/2014/zt/abju/h5/vid2.jpg"></div>
+                                        <p class="closeVideo" style="-webkit-transform-origin: 0px 0px 0px; opacity: 1; -webkit-transform: scale(1, 1);"></p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video-hole"></div>
+                        <div class="animation video-play-btn"></div>
+                        <div class="animation video-text">
+                            <p>大叔大妈让一让</p>
+                            <p>我对这个世界<span class="video-font-2">"有看法"</span></p>
+                        </div>
+                        <div class="animation video-num">第一期</div>
+                        <div class="animation video-trangle"></div>
+                        <div class="animation video-trangle-gray"></div>
                     </div>
-                    <div class="circle"></div>
-                </li>
-                <li>
-                    <div class="block">
-                        <p class="text-padding">大叔大妈让一让</p>
-                        <p>我对这个世界“有看法”</p>
-                    </div>
-                    <div class="circle"></div>
-                </li>
-            </ul>
-            <!-- 向左滑动切换提示 -->
-            <div class="ele mod-page-0__arrow">
-                <div class="mod-page-0__arrow-item mod-page-0__arrow-item-1"></div>
-                <div class="mod-page-0__arrow-item mod-page-0__arrow-item-2"></div>
-                <div class="mod-page-0__arrow-item mod-page-0__arrow-item-3"></div>
+                </div>
+               
+
+            </div>
+            <!-- 往期回顾 -->
+            <div class="content-li previous-review">
+                <div class="previous-review-trangle"></div>
+                <ul class="previous-review-list page-content">
+                    <li>
+                        <a href="" class="block">
+                            <p class="text-padding">大叔大妈让一让</p>
+                            <p>我对这个世界“有看法”</p>
+                        </a>
+                        <div class="circle"></div>
+
+                    </li>
+                    <li>
+                        <a href=""  class="block">
+                            <p class="text-padding">大叔大妈让一让</p>
+                            <p>我对这个世界“有看法”</p>
+                        </a>
+                        <div class="circle"></div>
+                    </li>
+                    <li>
+                        <a href=""  class="block">
+                            <p class="text-padding">大叔大妈让一让</p>
+                            <p>我对这个世界“有看法”</p>
+                        </a>
+                        <div class="circle"></div>
+                    </li>
+                    <li>
+                        <a href=""  class="block">
+                            <p class="text-padding">大叔大妈让一让</p>
+                            <p>我对这个世界“有看法”</p>
+                        </a>
+                        <div class="circle"></div>
+                    </li>
+                </ul>
+                
+            </div>
+            <!-- 作者 -->
+            <div class="content-li author ">
+                <div class="author-trangle-bottom"></div>
+                <div class="author-trangle-top"></div>
+                <div class="author-footer"></div>
+                <div class="author-list">
+                    <dl>
+                        <dt>监 制</dt>
+                        <dd>李天亮 陈鹏 权立 刘倩文</dd>
+                    </dl>
+                    <dl>
+                        <dt>策 划</dt>
+                        <dd>张春续 史川楠 曹睿 陈贺兰</dd>
+                    </dl>
+                    <dl>
+                        <dt>嘉宾统筹</dt>
+                        <dd>王兰 杨耕书 西晨</dd>
+                    </dl>
+                    <dl>
+                        <dt>设计制作</dt>
+                        <dd>刘芬 姜蒙 李杨</dd>
+                    </dl>
+                    <dl>
+                        <dt>产 品</dt>
+                        <dd>李毅华</dd>
+                    </dl>
+                </div>
+                <div class="author-back" >
+                    <div class="author-back-in" id="start_again"></div>
+                </div>
+                <div class="author-share">
+                    <div class="author-share-in"  id="share_btn"></div>
+                </div>
             </div>
         </div>
-        <!-- 作者 -->
-        <div class="content-li author wrap">
-            <div class="author-trangle-bottom"></div>
-            <div class="author-trangle-top"></div>
-            <div class="author-footer"></div>
-            <div class="author-list">
-                <dl>
-                    <dt>监 制</dt>
-                    <dd>李天亮 陈鹏 权立 刘倩文</dd>
-                </dl>
-                <dl>
-                    <dt>策 划</dt>
-                    <dd>张春续 史川楠 曹睿 陈贺兰</dd>
-                </dl>
-                <dl>
-                    <dt>嘉宾统筹</dt>
-                    <dd>王兰 杨耕书 西晨</dd>
-                </dl>
-                <dl>
-                    <dt>设计制作</dt>
-                    <dd>刘芬 姜蒙 李杨</dd>
-                </dl>
-                <dl>
-                    <dt>产 品</dt>
-                    <dd>李毅华</dd>
-                </dl>
-            </div>
-            <div class="author-back" >
-                <div class="author-back-in" id="start_again"></div>
-            </div>
-            <div class="author-share">
-                <div class="author-share-in"  id="share_btn"></div>
-            </div>
-        </div>
+        
     </div>
     
     
